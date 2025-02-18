@@ -15,15 +15,7 @@ const PORT = 3000;
 
 
 app.use(express.json());
-app.use((req, res, next) => {
-    res.set({
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "*",
-        "Access-Control-Allow-Headers": "'Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token'",
-    }); 
-
-    next();
-})
+app.use(cors({ origin: 'https://brainly-fe-ten.vercel.app' }));
 
 
 app.get('/',(req,res)=>{
