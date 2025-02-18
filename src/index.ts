@@ -13,11 +13,14 @@ import cors from 'cors'
 const app = express();
 const PORT = 3000;
 const corsOptions = {
-    origin:['https://brainly-fe-ten.vercel.app']
+    origin:'https://brainly-fe-ten.vercel.app',
+     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+     allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
 }
 
 app.use(express.json());
 app.use(cors(corsOptions))
+app.options('*', cors(corsOptions));
 
 app.get('/',(req,res)=>{
     res.json({
